@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <form>
+            <input type="email" id="email" name="email" required>
+            <input type="password" id="password" name="password" required>
+            <input type="password1" id="password1" name="password1" required>
+            <input type="button" id="submit">
+        </form>
+        <script>
+            $(document).ready(function(){
+                var password=$('#password');
+                var password1=$('#password1');
+                $('#submit').click(function(){
+                    if(password.val()===password1.val()){
+                        $.post('http://localhost:3000/register',{
+                            email:$('#email').val(),
+                            password:password1.val()
+                        },function(data,status){
+                            if(data){
+                                alert('success');
+                                window.location.href='/users/login'
+                            }
+                        })
+                    } else {
+                        alert('Enter Same PAsswords');
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>
