@@ -16,6 +16,9 @@ const orderSchema = new mongoose.Schema({
     itemID : {
         type :String
     },
+    deliverTo : {
+        type :String
+    },
     deliveryAdd:{
         type :String
     },
@@ -26,11 +29,17 @@ const orderSchema = new mongoose.Schema({
     addons:{
         type:String
     },
-    orderTotal:{
+    price:{
         type:Number
+    },
+    currency:{
+        type:String
     }
 });
 
 const Order=mongoose.model('Order',orderSchema);
-
-module.exports = Order;
+const Delivery = mongoose.model('Delivery',deliverySchema);
+module.exports = {
+    Order:Order,
+    Delivery:Delivery
+}

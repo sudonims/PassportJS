@@ -7,9 +7,17 @@
         <h1>Dashboard</h1> 
         <p> Hello, <%= user.email %> Choose your Cake </p>
 
-
-
-
-
+        <form method="POST">
+            <input type="hidden" id="user" name="user" value=<%= user.email %> />
+            <input type="hidden" id="product_id" name="product_id" value="0000" />
+            <input type="hidden" id="price" name="price" value="500" />
+            <input type="hidden" id="currency" name="currency" value="INR" />
+            <input type="text" id="address" name="address" placeholder="address"/>
+            <input type="date" id="delivery_date" placeholder="Date"/>
+            <input type="text" id="message" name="message" placeholder="Any message"/>
+            <input type="submit" id="submit" />
+        </form>
+        <script>
+        </script>
     </body>
 </html>
